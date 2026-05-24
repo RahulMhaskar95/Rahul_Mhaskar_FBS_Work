@@ -1,0 +1,31 @@
+MySQL Assignment-1
+Q1)
+--login :- mysql -u root -p;
+   password:- *******
+--SHOW databases;
+
+Q2)
+--- CREATE DATABASE pr_sql;
+--- CREATE TABLE countries (country_id INT , country_name VARCHAR(100),region_id INT);
+---  DESCRIBE countries;
+
+Q3)
+---  CREATE TABLE jobs (  job_id INT PRIMARY KEY , job_title VARCHAR (50) NOT NULL, min_salary DECIMAL(10,2), max_salary DECIMAL(10,2), CONSTRAINT chk_max_salary CHECK ( max_salary <= 25000.00));
+
+Q4)
+--- CREATE TABLE job_history ( employee_id INT , start_date DATE , end_date DATE , job_id INT , department_id INT);
+
+Q5)
+---  ALTER TABLE countries ADD CONSTRAINT no_duplicate_values UNIQUE(country_id);
+
+Q6)
+---  CREATE TABLE jobs_default ( job_title VARCHAR(50) DEFAULT "" ,min_salary decimal(10,2) DEFAULT 8000.00 , max_salary decimal(10,2) DEFAULT NULL);
+
+Q7)
+--- CREATE TABLE Department ( department_id decimal(4,0) , department_name varchar(30) NOT NULL,manager_id decimal(6,0) , location_id decimal(4,0) , PRIMARY KEY ( department_id , manager_id));
+
+Q8)
+--- CREATE TABLE employees ( employee_id int PRIMARY KEY , first_name varchar(50) , last_name varchar(50) , email varchar(100) , hire_date DATE , job_id int , salary decimal(10,2) , commission decimal(10,2) , manager_id int , department_id decimal(4,0), FOREIGN KEY (department_id) REFERENCES Department (department_id) );
+
+Q9)
+---ALTER TABLE employees ADD CONSTRAINT fr_key FOREIGN KEY ( department_id , manager_id ) REFERENCES department_managers ( department_id , manager_id);
